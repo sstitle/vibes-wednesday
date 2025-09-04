@@ -1,3 +1,5 @@
 .env
 **/.env
 scratchpad.md
+
+**/node_modules

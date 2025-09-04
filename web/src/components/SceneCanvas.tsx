@@ -1,11 +1,13 @@
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Text } from '@react-three/drei'
 import { Suspense, useMemo } from 'react'
+import { useMeshState } from '../state/MeshContext'
 
 function HelloText() {
+  const { meshLabel } = useMeshState()
   return (
     <Text fontSize={0.8} color="white" anchorX="center" anchorY="middle">
-      Hello World
+      {meshLabel}
     </Text>
   )
 }

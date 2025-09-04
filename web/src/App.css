@@ -40,3 +40,108 @@
 .read-the-docs {
   color: #888;
 }
+
+/* --- Split-pane layout for chat and 3D view --- */
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  height: 80vh;
+}
+
+.chat-pane, .view-pane {
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #333;
+  font-weight: 600;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 1rem;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.chat-footer {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid #333;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+.chat-send {
+  padding: 0.5rem 0.9rem;
+}
+
+.view-placeholder {
+  margin: auto;
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+/* --- Chat messages --- */
+.message {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.assistant {
+  justify-content: flex-start;
+}
+
+.message .bubble {
+  max-width: min(70ch, 90%);
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  background: #222;
+  border: 1px solid #333;
+}
+
+.message.user .bubble {
+  background: #0f172a;
+  border-color: #1f2937;
+}
+
+.chat-empty {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+/* --- 3D canvas sizing --- */
+.scene-root {
+  flex: 1;
+}
+
+.scene-root canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}

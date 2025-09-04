@@ -1,0 +1,10 @@
+---
+alwaysApply: true
+---
+
+# Guidelines
+
+- Reference but do not alter 'DESIGN.md'
+- Use the dev shell defined in 'flake.nix'
+- The client web application is in 'web' folder
+- We're using pnpm for package management

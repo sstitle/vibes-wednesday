@@ -22,7 +22,10 @@
         # system.
 
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-        packages.default = pkgs.hello;
+        packages.default = pkgs.writeShellScriptBin "start-dev-server" ''
+          cd web
+          pnpm run dev
+        '';
 
         devShells.default = pkgs.mkShell {
           inputsFrom = [ self'.packages.default ];
